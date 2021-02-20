@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Employee;
+use App\Models\Project;
 
-class EmployeeController extends Controller
+class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-		$employees = Employee::Paginate(10);
-		return view('intranet.employee.index', compact('employees'));
+		$projects = Project::Paginate(10);
+		return view('intranet.project.index', compact('projects'));
     }
 
     /**

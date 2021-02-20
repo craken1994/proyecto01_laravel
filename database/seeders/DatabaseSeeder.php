@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Employee;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,5 +16,6 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 		$this->call([EmployeeSeeder::class]);
+		Employee::factory(13)->create();
     }
 }
