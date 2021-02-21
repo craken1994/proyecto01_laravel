@@ -27,8 +27,11 @@ Route::view('contactanos', 'contactanos')->name('contactanos');
 
 //Route::view('employee', 'intranet.employee.index');
 
+Route::view('intranet', 'intranet.index')->name('intranet.index');
+
 Route::get('intranet/employee', [EmployeeController::class, 'index'])->name('employee.index');
 
 Route::get('intranet/project', [ProjectController::class, 'index'])->name('project.index');
+Route::get('intranet/project/create', [ProjectController::class, 'create'])->name('project.create');
 
 //Route::get('employees', EmployeeController::class)->name('employee');

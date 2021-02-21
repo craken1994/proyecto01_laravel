@@ -7,7 +7,7 @@
 @endsection
 
 @section('body')
-  <a href="">New</a>
+  <a href="{{route('project.create')}}">New</a>
   <table border="1">
 	 <thead>
 	 <tr>
@@ -25,11 +25,11 @@
 			 <td>{{$project->project}}</td>
 			 <td>{{$project->description}}</td>
 			 <td>{{$project->presentation_date}}</td>
-			 <td>{{$project->employee_id}}</td>
+			 <td>{{$project->names}}  {{$project->surnames}}</td>
 		  </tr>
 		@endforeach
 	 </tbody>
   </table>
 
-  {{$projects->links()}}
+  {{--$projects->links()--}}
 @endsection

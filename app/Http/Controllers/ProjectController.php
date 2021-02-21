@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employee;
 use Illuminate\Http\Request;
 use App\Models\Project;
+use Illuminate\Support\Facades\DB;
 
 class ProjectController extends Controller
 {
@@ -14,7 +16,12 @@ class ProjectController extends Controller
      */
     public function index()
     {
-		$projects = Project::Paginate(10);
+		//$projects = Project::Paginate(10);
+		$projects = DB::table('projects')
+		  ->join('employees', 'employees.id', '=', 'projects.employee_id')
+		  ->select('projects.id', 'projects.project', 'projects.description', 'projects.presentation_date', 'employees.names', 'employees.surnames')
+		  ->get();
+		//return $projects;
 		return view('intranet.project.index', compact('projects'));
     }
 
@@ -25,7 +32,9 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+		$employees  = Employee::all();
+		//return $employees;
+		return view('intranet.project.create', compact('employees'));
     }
 
     /**
